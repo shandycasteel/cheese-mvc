@@ -3,6 +3,10 @@ body {
     font-size: 14px;
 }
 
+.center {
+    text-align: center;
+}
+
 nav {
     text-transform: uppercase;
     padding: 30px;
@@ -11,10 +15,8 @@ nav {
 
 table {
     border-collapse: collapse;
-}
-
-table{
-    width: 70%;
+    width: 60%;
+    margin: 0 auto;
 }
 
 table, th, td {
@@ -22,7 +24,7 @@ table, th, td {
 }
 
 th {
-    height: 50px;
+    height: 40px;
     background: #DCDCDC;
     font-size: 18px;
     font-transform: uppercase;
@@ -30,17 +32,10 @@ th {
 }
 
 th, td {
-    padding: 15px;
+    padding: 10px;
     text-align: left;
 }
 
-input{
-    padding-left: 15px;
-    height: 32px;
-    font-size: 14px;
-    width: 300px;
-    margin-bottom: 20px;
-}
 
 input[type=submit] {
     padding: 8px;
@@ -48,17 +43,25 @@ input[type=submit] {
     font-weight: bold;
     font-size: 16px;
     text-transform: uppercase;
-    width: 100px;
+    width: 200px;
 }
 
 textarea {
     resize: none;
+    padding: 15px;
     font-size: 14px;
-    padding: 16px;
     border: 1px;
     border-style: solid;
     border-color: slategray;
-    width: 284px;
+    width: 298px;
     height: 200px;
     border-color: #DCDCDC;
+}
+
+input[type=text] {
+width: 300px;
+    padding: 15px;
+    height: 32px;
+    font-size: 14px;
+    margin-bottom: 20px;
 }

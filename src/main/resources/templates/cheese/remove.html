@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml"
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org/">
 
 <head th:replace="fragments :: head"></head>
@@ -11,24 +11,30 @@
 
 <nav th:replace="fragments :: navigation"></nav>
 
+<form method="post">
+
     <table>
         <tr>
             <h1 th:text="${title}">Default Title</h1>
         </tr>
 
         <tr>
-            <p th:unless="${cheeses} and ${cheeses.size()}">No Cheese &cross;</p>
-        </tr>
-
-        <tr th:if="${cheeses}">
             <th>Name</th>
             <th>Description</th>
         </tr>
-        <tr th:if="${cheeses}" th:each="cheese : ${cheeses}">
-            <td th:text="${cheese.getName()}">Name</td>
+        <tr th:each="cheese : ${cheeses}">
+            <td>
+                <input type="checkbox" name="removeList" th:value="${cheese.getName()}" th:text="${cheese.getName()}" />
+
+            </td>
+
             <td th:text="${cheese.getDescription()}">Description</td>
         </tr>
     </table>
+
+    <br />
+    <input type="submit" value="Remove Cheese" />
+</form>
 
 </div>
 
