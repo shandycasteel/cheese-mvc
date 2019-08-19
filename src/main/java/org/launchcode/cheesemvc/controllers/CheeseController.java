@@ -15,13 +15,13 @@ import java.util.ArrayList;
 @RequestMapping("cheese")
 public class CheeseController {
 
-    static ArrayList<Cheese> cheeses = new ArrayList<>();
+    static ArrayList<Cheese> allCheeses = new ArrayList<>();
 
     // Request path: /cheese
     @RequestMapping(value = "")
     public String index(Model model) {
 
-        model.addAttribute("cheeses", cheeses);
+        model.addAttribute("cheeses", allCheeses);
         model.addAttribute("title", "My Cheeses");
         return "cheese/index";
     }
@@ -37,9 +37,13 @@ public class CheeseController {
     @RequestMapping(value = "add", method  = RequestMethod.POST)
     public String processAddCheeseForm(@RequestParam  String  cheeseName, @RequestParam String cheeseDescription) {
 
-        Cheese newCheese = new Cheese(cheeseName, cheeseDescription);
 
-        cheeses.add(newCheese);
+        Cheese newCheese = new Cheese();
+
+        newCheese.setName(cheeseName);
+        newCheese.setDescription(cheeseDescription);
+
+        allCheeses.add(newCheese);
 
         // Redirect to /cheese
         return "redirect:";
@@ -48,18 +52,16 @@ public class CheeseController {
     @RequestMapping(value = "remove", method  = RequestMethod.GET)
     public String removeCheeseForm(Model model) {
         model.addAttribute("title", "Remove Cheese");
-        model.addAttribute("cheeses", cheeses);
+        model.addAttribute("cheeses", allCheeses);
 
         // Redirect to /cheese
         return "cheese/remove";
     }
 
-    @RequestMapping(value = "remove", method  = RequestMethod.POST)
-    public String processRemoveCheeseForm(@RequestParam ArrayList<String> removeList) {
+    @RequestMapping(value = "remove", method = RequestMethod.POST)
+    public String processRemoveCheeseForm(@RequestParam int removedCheese) {
 
-        for(int i = 0; i < removeList.size(); i++) {
-            cheeses.remove(i);
-        }
+            this.allCheeses.remove(removedCheese);
 
         // Redirect to /cheese
         return "redirect:";

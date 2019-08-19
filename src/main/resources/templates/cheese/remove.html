@@ -11,7 +11,7 @@
 
 <nav th:replace="fragments :: navigation"></nav>
 
-<form method="post">
+<form method="post" th:object="${cheese}">
 
     <table>
         <tr>
@@ -19,16 +19,10 @@
         </tr>
 
         <tr>
-            <th>Name</th>
-            <th>Description</th>
-        </tr>
-        <tr th:each="cheese : ${cheeses}">
-            <td>
-                <input type="checkbox" name="removeList" th:value="${cheese.getName()}" th:text="${cheese.getName()}" />
+            <select name="removedCheese">
+            <option th:each="aCheese, iter : ${cheeses}" th:value="${iter.index}" th:text="${aCheese.getName()}"></option>
 
-            </td>
-
-            <td th:text="${cheese.getDescription()}">Description</td>
+            </select>
         </tr>
     </table>
 

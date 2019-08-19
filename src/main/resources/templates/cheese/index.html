@@ -20,7 +20,7 @@
             <p th:unless="${cheeses} and ${cheeses.size()}">No Cheese &cross;</p>
         </tr>
 
-        <tr th:if="${cheeses}">
+        <tr th:if="${cheeses.size()}">
             <th>Name</th>
             <th>Description</th>
         </tr>

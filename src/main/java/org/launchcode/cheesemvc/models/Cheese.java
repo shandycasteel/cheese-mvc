@@ -4,11 +4,17 @@ public class Cheese {
 
     private String name;
     private String description;
+    private int id;
 
-    public Cheese(String name, String description) {
+    public Cheese() {
 
-        this.name = name;
-        this.description = description;
+    }
+
+    public Cheese(String aName, String aDescription) {
+
+        this.name = aName;
+        this.description = aDescription;
+        this.id = id ++;
     }
 
     public String getName() {
