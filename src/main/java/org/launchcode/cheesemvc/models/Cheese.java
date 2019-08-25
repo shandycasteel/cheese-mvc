@@ -4,21 +4,30 @@ public class Cheese {
 
     private String name;
     private String description;
-    private int id;
+    private int cheeseId;
+    private static int nextId = 1;
 
-    public Cheese() {
-
+    public Cheese(String name, String description) {
+        this();
+        this.name = name;
+        this.description = description;
     }
 
-    public Cheese(String aName, String aDescription) {
+    public Cheese() {
+        cheeseId = nextId;
+        nextId++;
+    }
 
-        this.name = aName;
-        this.description = aDescription;
-        this.id = id ++;
+    public int getCheeseId() {
+        return cheeseId;
+    }
+
+    public void setCheeseId(int cheeseId) {
+        this.cheeseId = cheeseId;
     }
 
     public String getName() {
-        return this.name;
+        return name;
     }
 
     public void setName(String name) {
@@ -26,12 +35,11 @@ public class Cheese {
     }
 
     public String getDescription() {
-        return this.description;
+        return description;
     }
 
     public void setDescription(String description) {
         this.description = description;
     }
-
 }
 

@@ -4,6 +4,8 @@ build/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**
 !**/src/test/**
+src/main/java/org/launchcode/cheesemvc/example/
+
 
 ### STS ###
 .apt_generated

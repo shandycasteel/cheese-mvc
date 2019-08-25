@@ -5,33 +5,22 @@
 
 <head th:replace="fragments :: head"></head>
 
-<body>
+<body class="container">
 
-<div class="center">
+<h1 th:text="${title}">Default Title</h1>
 
 <nav th:replace="fragments :: navigation"></nav>
 
-<form method="post" th:object="${cheese}">
+<form method="post">
 
-    <table>
-        <tr>
-            <h1 th:text="${title}">Default Title</h1>
-        </tr>
+    <div th:each="cheese : ${cheeses}" class="checkbox">
+        <input type="checkbox" name="cheeseIds" th:value="${cheese.cheeseId}" th:id="#{cheese.cheeseId}" />
+        <label th:for="${cheese.cheeseId}" th:text="${cheese.name}"></label>
+        <br />
+    </div>
 
-        <tr>
-            <select name="removedCheese">
-            <option th:each="aCheese, iter : ${cheeses}" th:value="${iter.index}" th:text="${aCheese.getName()}"></option>
-
-            </select>
-        </tr>
-    </table>
-
-    <br />
     <input type="submit" value="Remove Cheese" />
 </form>
 
-</div>
-
 </body>
-
 </html>
